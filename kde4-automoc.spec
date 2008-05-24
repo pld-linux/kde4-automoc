@@ -21,9 +21,7 @@ automoc.
 
 %prep
 %setup -q -n %{orgname}
-%if "%{_lib}" == "lib64"
 %patch0 -p0
-%endif
 
 %build
 install -d build
