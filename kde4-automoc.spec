@@ -26,9 +26,12 @@ automoc.
 install -d build
 cd build
 %cmake \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DQT_QMAKE_EXECUTABLE=%{_bindir}/qmake-qt4 \
-	..
+       -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+       -DQT_QMAKE_EXECUTABLE=%{_bindir}/qmake-qt4 \
+%if "%{_lib}" == "lib64"
+        -DLIB_SUFFIX=64 \
+%endif
+        ..
 
 %{__make}
 
