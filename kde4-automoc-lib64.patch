@@ -1,0 +1,8 @@
+--- CMakeLists.txt	2008-05-22 20:38:02.000000000 +0200
++++ CMakeLists.txt-new	2008-05-24 15:45:23.685184767 +0200
+@@ -17,4 +17,4 @@
+ target_link_libraries(automoc4 ${QT_QTCORE_LIBRARY})
+ 
+ install(TARGETS automoc4 DESTINATION bin)
+-install(FILES Automoc4Config.cmake automoc4.files.in  DESTINATION  lib/automoc4)
++install(FILES Automoc4Config.cmake automoc4.files.in  DESTINATION  lib64/automoc4)
