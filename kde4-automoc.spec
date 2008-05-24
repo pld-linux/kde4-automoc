@@ -8,7 +8,7 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	%{orgname}-%{version}.tar.bz2
 # Source0-md5:	ad6209138f9c80438c464c8922bd80ec
-URL:		http://
+Patch0:		%{name}-lib64.patch
 BuildRequires:	cmake
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -21,6 +21,9 @@ automoc.
 
 %prep
 %setup -q -n %{orgname}
+%if "%{_lib}" == "lib64"
+%patch0 -p0
+%endif
 
 %build
 install -d build
@@ -28,9 +31,6 @@ cd build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DQT_QMAKE_EXECUTABLE=%{_bindir}/qmake-qt4 \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
-%endif
 	../
 
 %{__make}
