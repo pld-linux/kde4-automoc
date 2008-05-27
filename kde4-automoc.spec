@@ -28,6 +28,9 @@ install -d build
 cd build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+%if "%{_lib}" != "lib"
+	-DLIB_SUFFIX=64 \
+%endif
 	-DQT_QMAKE_EXECUTABLE=%{_bindir}/qmake-qt4 \
 	../
 
