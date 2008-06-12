@@ -1,12 +1,14 @@
 %define		orgname	automoc
+%define		snap	811226
+
 Summary:	automoc
 Summary(pl.UTF-8):	automoc
 Name:		kde4-automoc
-Version:	0.0.811226
-Release:	0.1
+Version:	4.0.81
+Release:	0.%{snap}.1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	%{orgname}-%{version}.tar.bz2
+Source0:	%{orgname}-0.0.%{snap}.tar.bz2
 # Source0-md5:	ad6209138f9c80438c464c8922bd80ec
 Patch0:		%{name}-lib64.patch
 BuildRequires:	cmake
